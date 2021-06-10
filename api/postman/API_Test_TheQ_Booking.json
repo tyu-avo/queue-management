@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0b45a7be-46ca-46f3-abab-3e058b7b4d58",
+		"_postman_id": "1b25321a-acaa-42d1-a1de-841fa91d54a1",
 		"name": "API_Test_TheQ_Booking Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -813,10 +813,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}healthz/",
 							"host": [
@@ -901,10 +897,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}healthz/",
 							"host": [
@@ -961,10 +953,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}readyz/",
 							"host": [
@@ -1126,10 +1114,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}csrs/me/",
 							"host": [
@@ -1229,10 +1213,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}channels/",
 							"host": [
@@ -1367,10 +1347,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}csrs/me/",
 							"host": [
@@ -1472,10 +1448,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}categories/",
 							"host": [
@@ -1589,10 +1561,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}services/",
 							"host": [
@@ -1644,10 +1612,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}services/refresh/?office_id={{current_office_id}}",
 							"host": [
@@ -1750,10 +1714,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}smartboard/?office_number={{current_office_number}}",
 							"host": [
@@ -1816,10 +1776,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}videofiles/",
 							"host": [
@@ -1871,10 +1827,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}videofiles/?office_number={{current_office_number}}",
 							"host": [
@@ -1937,10 +1889,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}csrs/",
 							"host": [
@@ -2151,10 +2099,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}csr_states/",
 							"host": [
@@ -2251,10 +2195,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -2552,10 +2492,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}healthz/",
 							"host": [
@@ -2635,10 +2571,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -3004,10 +2936,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/{{current_client}}/",
 							"host": [
@@ -3733,10 +3661,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -4099,10 +4023,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/{{current_client}}/",
 							"host": [
@@ -4472,10 +4392,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/{{current_client}}/service_requests/",
 							"host": [
@@ -4810,10 +4726,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -5096,10 +5008,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -5461,10 +5369,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/{{current_client}}/",
 							"host": [
@@ -5790,10 +5694,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -5874,10 +5774,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -6243,10 +6139,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/{{current_client}}/",
 							"host": [
@@ -6721,10 +6613,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -7076,10 +6964,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/{{first_client}}/",
 							"host": [
@@ -7571,10 +7455,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/{{second_client}}/",
 							"host": [
@@ -7777,10 +7657,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -8561,10 +8437,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -8916,10 +8788,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/{{first_client}}/",
 							"host": [
@@ -9400,10 +9268,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/{{second_client}}/",
 							"host": [
@@ -9606,10 +9470,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}citizens/",
 							"host": [
@@ -10345,6 +10205,14 @@
 									"pm.globals.set('pm_booking_uuid', '\"pm_recurring_booking_uuid\"');",
 									"pm.globals.set('pm_appt_uuid', '\"pm_recurring_appt_uuid\"');",
 									"",
+									"pm.globals.set('pm_blackout_uuid', '\"pm_recurring_blackout_uuid\"');",
+									"pm_url_blackout_uuid = JSON.parse(pm.globals.get(\"pm_blackout_uuid\"))",
+									"pm.globals.set(\"pm_url_blackout_uuid\", pm_url_blackout_uuid);",
+									"",
+									"pm.globals.set('pm_stat_uuid', '\"pm_recurring_stat_uuid\"');",
+									"pm_url_stat_uuid = JSON.parse(pm.globals.get(\"pm_stat_uuid\"))",
+									"pm.globals.set(\"pm_url_stat_uuid\", pm_url_stat_uuid);",
+									"",
 									"if (pm.globals.get('use-prefix')) {",
 									"    console.log(\"==> use-prefix exists\");",
 									"    usePrefix = pm.globals.get('use-prefix');",
@@ -10997,7 +10865,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "// Define the JSON Schema expected in response\nvar appointmentSchema = {\n    \"type\": \"object\", \n    \"properties\": {\n        \"appointment\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"appointment_id\": {\"type\": \"number\"},\n                \"checked_in_time\": {\"type\": [\"string\", \"null\"]},\n                \"citizen_name\": {\"type\": \"string\"},\n                \"comments\": {\"type\": \"string\"},\n                \"contact_information\": {\"type\": [\"string\", \"null\"]},\n                \"end_time\": {\"type\": \"string\"},\n                \"office\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"appointments_enabled_ind\": {\"type\": \"number\"},\n                            \"exams_enabled_ind\": {\"type\": \"number\"},\n                            \"office_id\": {\"type\": \"number\"},\n                            \"office_name\": {\"type\": \"string\"},\n                            \"office_number\": {\"type\": \"number\"},\n                            \"timezone\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"timezone_id\": {\"type\": \"number\"},\n                                    \"timezone_name\": {\"type\": \"string\"}\n                                },\n                                \"required\": [\"timezone_id\", \"timezone_name\"]\n                            },\n                        },\n                        \"required\": [\"appointments_enabled_ind\", \"exams_enabled_ind\", \"office_id\", \"office_name\", \"office_number\", \"timezone\"]\n                    },\n                \"office_id\": {\"type\": \"number\"},\n                \"service_id\": {\"type\": [\"null\", \"number\"]},\n                \"start_time\": {\"type\": \"string\"},\n                \"blackout_flag\": {\"type\": \"string\"},\n                \"citizen_id\": {\"type\": \"number\"},\n                \"online_flag\": {\"type\": \"boolean\"},\n                \"recurring_uuid\": {\"type\": [\"null\", \"string\"]},\n                \"services\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"deleted\": {\"type\": [\"null\", \"string\"]},\n                        \"display_dashboard_ind\": {\"type\": \"number\"},\n                        \"timeslot_duration\": {\"type\": [\"null\", \"number\"]},\n                        \"parent\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                                \"service_name\": {\"type\": \"string\"}\n                            },\n                            \"required\": [\"service_name\"]\n                        },\n                        \"service_name\": {\"type\": \"string\"},\n                        \"service_code\": {\"type\": \"string\"},\n                        \"actual_service_ind\": {\"type\": \"number\"},\n                        \"online_link\": {\"type\": [\"null\", \"string\"]},\n                        \"service_desc\": {\"type\": \"string\"},\n                        \"service_id\": {\"type\": \"number\"},\n                        \"parent_id\": {\"type\": \"number\"},\n                        \"prefix\": {\"type\": \"string\"},\n                        \"online_availability\": {\"type\": [\"null\", \"string\"]},\n                        \"external_service_name\": {\"type\": [\"null\", \"string\"]}\n                    },\n                    \"required\": [\"deleted\", \"display_dashboard_ind\", \"timeslot_duration\", \"parent\",\n                                \"service_name\", \"service_code\", \"actual_service_ind\", \"online_link\",\n                                \"service_desc\", \"service_id\", \"parent_id\", \"prefix\", \"online_availability\",\n                                \"external_service_name\"]\n                }\n            },\n            \"required\": [\"appointment_id\", \"checked_in_time\", \"citizen_name\", \"comments\",\n                         \"contact_information\", \"end_time\", \"office\", \"office_id\", \"service_id\",\n                         \"start_time\", \"blackout_flag\", \"citizen_id\", \"online_flag\",\n                         \"recurring_uuid\", \"service\"],\n        },\n        \"errors\": {\"type\": [\"object\", \"string\"]}\n    },\n    \"required\": [\"appointment\", \"errors\"],\n};\n\n//Test to see if response schema is valid\npm.test(\"Validate Response Appointments Schema\", function(){\n    pm.expect(tv4.validate(jsonData, appointmentSchema)).to.be.true;\n});\n"
+							"raw": "// Define the JSON Schema expected in response\nvar appointmentSchema = {\n    \"type\": \"object\", \n    \"properties\": {\n        \"appointment\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"appointment_id\": {\"type\": \"number\"},\n                \"checked_in_time\": {\"type\": [\"string\", \"null\"]},\n                \"citizen_name\": {\"type\": \"string\"},\n                \"comments\": {\"type\": \"string\"},\n                \"contact_information\": {\"type\": [\"string\", \"null\"]},\n                \"end_time\": {\"type\": \"string\"},\n                \"office\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"appointments_enabled_ind\": {\"type\": \"number\"},\n                            \"exams_enabled_ind\": {\"type\": \"number\"},\n                            \"office_id\": {\"type\": \"number\"},\n                            \"office_name\": {\"type\": \"string\"},\n                            \"office_number\": {\"type\": \"number\"},\n                            \"timezone\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"timezone_id\": {\"type\": \"number\"},\n                                    \"timezone_name\": {\"type\": \"string\"}\n                                },\n                                \"required\": [\"timezone_id\", \"timezone_name\"]\n                            },\n                        },\n                        \"required\": [\"appointments_enabled_ind\", \"exams_enabled_ind\", \"office_id\", \"office_name\", \"office_number\", \"timezone\"]\n                    },\n                \"office_id\": {\"type\": \"number\"},\n                \"service_id\": {\"type\": [\"null\", \"number\"]},\n                \"start_time\": {\"type\": \"string\"},\n                \"blackout_flag\": {\"type\": \"string\"},\n                \"citizen_id\": {\"type\": \"number\"},\n                \"online_flag\": {\"type\": \"boolean\"},\n                \"is_draft\": {\"type\": \"boolean\"},\n                \"stat_flag\": {\"type\": \"boolean\"},\n                \"recurring_uuid\": {\"type\": [\"null\", \"string\"]},\n                \"services\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"deleted\": {\"type\": [\"null\", \"string\"]},\n                        \"display_dashboard_ind\": {\"type\": \"number\"},\n                        \"timeslot_duration\": {\"type\": [\"null\", \"number\"]},\n                        \"parent\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                                \"service_name\": {\"type\": \"string\"}\n                            },\n                            \"required\": [\"service_name\"]\n                        },\n                        \"service_name\": {\"type\": \"string\"},\n                        \"service_code\": {\"type\": \"string\"},\n                        \"actual_service_ind\": {\"type\": \"number\"},\n                        \"online_link\": {\"type\": [\"null\", \"string\"]},\n                        \"service_desc\": {\"type\": \"string\"},\n                        \"service_id\": {\"type\": \"number\"},\n                        \"parent_id\": {\"type\": \"number\"},\n                        \"prefix\": {\"type\": \"string\"},\n                        \"online_availability\": {\"type\": [\"null\", \"string\"]},\n                        \"external_service_name\": {\"type\": [\"null\", \"string\"]}\n                    },\n                    \"required\": [\"deleted\", \"display_dashboard_ind\", \"timeslot_duration\", \"parent\",\n                                \"service_name\", \"service_code\", \"actual_service_ind\", \"online_link\",\n                                \"service_desc\", \"service_id\", \"parent_id\", \"prefix\", \"online_availability\",\n                                \"external_service_name\"]\n                }\n            },\n            \"required\": [\"appointment_id\", \"checked_in_time\", \"citizen_name\", \"comments\",\n                         \"contact_information\", \"end_time\", \"office\", \"office_id\", \"service_id\",\n                         \"start_time\", \"blackout_flag\", \"citizen_id\", \"online_flag\",\n                         \"recurring_uuid\", \"service\"],\n        },\n        \"errors\": {\"type\": [\"object\", \"string\"]}\n    },\n    \"required\": [\"appointment\", \"errors\"],\n};\n\n//Test to see if response schema is valid\npm.test(\"Validate Response Appointments Schema\", function(){\n    pm.expect(tv4.validate(jsonData, appointmentSchema)).to.be.true;\n});\n"
 						},
 						"url": {
 							"raw": "https://postman-echo.com/post",
@@ -11069,7 +10937,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "// Define the JSON Schema expected in response\nvar appointmentSchema = {\n    \"type\": \"object\", \n    \"properties\": {\n        \"appointments\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"appointment_id\": {\"type\": \"number\"},\n                    \"checked_in_time\": {\"type\": [\"string\", \"null\"]},\n                    \"citizen_name\": {\"type\": \"string\"},\n                    \"comments\": {\"type\": [\"null\", \"string\"]},\n                    \"contact_information\": {\"type\": [\"null\", \"string\"]},\n                    \"end_time\": {\"type\": \"string\"},\n                    \"office\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"appointments_enabled_ind\": {\"type\": \"number\"},\n                            \"exams_enabled_ind\": {\"type\": \"number\"},\n                            \"office_id\": {\"type\": \"number\"},\n                            \"office_name\": {\"type\": \"string\"},\n                            \"office_number\": {\"type\": \"number\"},\n                            \"timezone\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"timezone_id\": {\"type\": \"number\"},\n                                    \"timezone_name\": {\"type\": \"string\"}\n                                },\n                                \"required\": [\"timezone_id\", \"timezone_name\"]\n                            },\n                        },\n                        \"required\": [\"appointments_enabled_ind\", \"exams_enabled_ind\", \"office_id\", \"office_name\", \"office_number\", \"timezone\"]\n                    },\n                    \"office_id\": {\"type\": \"number\"},\n                    \"service_id\": {\"type\": [\"null\", \"number\"]},\n                    \"start_time\": {\"type\": \"string\"},\n                    \"blackout_flag\": {\"type\": \"string\"},\n                    \"citizen_id\": {\"type\": \"number\"},\n                    \"online_flag\": {\"type\": \"boolean\"},\n                    \"recurring_uuid\": {\"type\": [\"null\", \"string\"]},\n                    \"services\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"deleted\": {\"type\": [\"null\", \"string\"]},\n                            \"display_dashboard_ind\": {\"type\": \"number\"},\n                            \"timeslot_duration\": {\"type\": [\"null\", \"number\"]},\n                            \"parent\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"service_name\": {\"type\": \"string\"}\n                                },\n                                \"required\": [\"service_name\"]\n                            },\n                            \"service_name\": {\"type\": \"string\"},\n                            \"service_code\": {\"type\": \"string\"},\n                            \"actual_service_ind\": {\"type\": \"number\"},\n                            \"online_link\": {\"type\": [\"null\", \"string\"]},\n                            \"service_desc\": {\"type\": \"string\"},\n                            \"service_id\": {\"type\": \"number\"},\n                            \"parent_id\": {\"type\": \"number\"},\n                            \"prefix\": {\"type\": \"string\"},\n                            \"online_availability\": {\"type\": [\"null\", \"string\"]},\n                            \"external_service_name\": {\"type\": [\"null\", \"string\"]}\n                        },\n                        \"required\": [\"deleted\", \"display_dashboard_ind\", \"timeslot_duration\", \"parent\",\n                                    \"service_name\", \"service_code\", \"actual_service_ind\", \"online_link\",\n                                    \"service_desc\", \"service_id\", \"parent_id\", \"prefix\", \"online_availability\",\n                                    \"external_service_name\"]\n                    },\n                        },\n                        \"required\": [\"appointment_id\", \"checked_in_time\", \"citizen_name\", \"comments\",\n                                    \"contact_information\", \"end_time\", \"office\", \"office_id\",\n                                    \"service_id\", \"start_time\", \"blackout_flag\", \"citizen_id\",\n                                    \"online_flag\", \"recurring_uuid\", \"service\"]\n                    }\n                },\n        \"errors\": {\"type\": [\"object\", \"string\"]}\n    },\n    \"required\": [\"appointments\"],\n};\n\n//Test to see if response schema is valid\npm.test(\"Validate Response Appointment List Schema\", function(){\n    pm.expect(tv4.validate(jsonData, appointmentSchema)).to.be.true;\n});\n"
+							"raw": "// Define the JSON Schema expected in response\nvar appointmentSchema = {\n    \"type\": \"object\", \n    \"properties\": {\n        \"appointments\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"appointment_id\": {\"type\": \"number\"},\n                    \"checked_in_time\": {\"type\": [\"string\", \"null\"]},\n                    \"citizen_name\": {\"type\": \"string\"},\n                    \"comments\": {\"type\": [\"null\", \"string\"]},\n                    \"contact_information\": {\"type\": [\"null\", \"string\"]},\n                    \"end_time\": {\"type\": \"string\"},\n                    \"office\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"appointments_enabled_ind\": {\"type\": \"number\"},\n                            \"exams_enabled_ind\": {\"type\": \"number\"},\n                            \"office_id\": {\"type\": \"number\"},\n                            \"office_name\": {\"type\": \"string\"},\n                            \"office_number\": {\"type\": \"number\"},\n                            \"timezone\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"timezone_id\": {\"type\": \"number\"},\n                                    \"timezone_name\": {\"type\": \"string\"}\n                                },\n                                \"required\": [\"timezone_id\", \"timezone_name\"]\n                            },\n                        },\n                        \"required\": [\"appointments_enabled_ind\", \"exams_enabled_ind\", \"office_id\", \"office_name\", \"office_number\", \"timezone\"]\n                    },\n                    \"office_id\": {\"type\": \"number\"},\n                    \"service_id\": {\"type\": [\"null\", \"number\"]},\n                    \"start_time\": {\"type\": \"string\"},\n                    \"blackout_flag\": {\"type\": \"string\"},\n                    \"citizen_id\": {\"type\": \"number\"},\n                    \"online_flag\": {\"type\": \"boolean\"},\n                    \"is_draft\": {\"type\": \"boolean\"},\n                    \"stat_flag\": {\"type\": \"boolean\"},\n                    \"recurring_uuid\": {\"type\": [\"null\", \"string\"]},\n                    \"services\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"deleted\": {\"type\": [\"null\", \"string\"]},\n                            \"display_dashboard_ind\": {\"type\": \"number\"},\n                            \"timeslot_duration\": {\"type\": [\"null\", \"number\"]},\n                            \"parent\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"service_name\": {\"type\": \"string\"}\n                                },\n                                \"required\": [\"service_name\"]\n                            },\n                            \"service_name\": {\"type\": \"string\"},\n                            \"service_code\": {\"type\": \"string\"},\n                            \"actual_service_ind\": {\"type\": \"number\"},\n                            \"online_link\": {\"type\": [\"null\", \"string\"]},\n                            \"service_desc\": {\"type\": \"string\"},\n                            \"service_id\": {\"type\": \"number\"},\n                            \"parent_id\": {\"type\": \"number\"},\n                            \"prefix\": {\"type\": \"string\"},\n                            \"online_availability\": {\"type\": [\"null\", \"string\"]},\n                            \"external_service_name\": {\"type\": [\"null\", \"string\"]}\n                        },\n                        \"required\": [\"deleted\", \"display_dashboard_ind\", \"timeslot_duration\", \"parent\",\n                                    \"service_name\", \"service_code\", \"actual_service_ind\", \"online_link\",\n                                    \"service_desc\", \"service_id\", \"parent_id\", \"prefix\", \"online_availability\",\n                                    \"external_service_name\"]\n                    },\n                        },\n                        \"required\": [\"appointment_id\", \"checked_in_time\", \"citizen_name\", \"comments\",\n                                    \"contact_information\", \"end_time\", \"office\", \"office_id\",\n                                    \"service_id\", \"start_time\", \"blackout_flag\", \"citizen_id\",\n                                    \"online_flag\", \"recurring_uuid\", \"service\"]\n                    }\n                },\n        \"errors\": {\"type\": [\"object\", \"string\"]}\n    },\n    \"required\": [\"appointments\"],\n};\n\n//Test to see if response schema is valid\npm.test(\"Validate Response Appointment List Schema\", function(){\n    pm.expect(tv4.validate(jsonData, appointmentSchema)).to.be.true;\n});\n"
 						},
 						"url": {
 							"raw": "https://postman-echo.com/post",
@@ -11144,10 +11012,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}csrs/me/",
 							"host": [
@@ -11212,10 +11076,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}rooms/",
 							"host": [
@@ -11314,10 +11174,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}services/",
 							"host": [
@@ -11393,10 +11249,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}healthz/",
 							"host": [
@@ -11480,10 +11332,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}healthz/",
 							"host": [
@@ -11539,10 +11387,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}readyz/",
 							"host": [
@@ -11639,10 +11483,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}exam_types/",
 							"host": [
@@ -11818,10 +11658,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}exams/{{current_exam_id}}/",
 							"host": [
@@ -11869,10 +11705,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}exams/",
 							"host": [
@@ -12011,10 +11843,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}exams/{{current_exam_id}}/",
 							"host": [
@@ -12090,10 +11918,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}exams/event_id/{{event_number}}/",
 							"host": [
@@ -12229,10 +12053,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}exams/export/?start_date={{start_date}}&end_date={{end_date}}",
 							"host": [
@@ -12394,10 +12214,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{booking_id}}/",
 							"host": [
@@ -12445,10 +12261,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/",
 							"host": [
@@ -12590,10 +12402,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{booking_id}}/",
 							"host": [
@@ -13003,10 +12811,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{booking_id}}/",
 							"host": [
@@ -13069,10 +12873,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{second_event_id}}/",
 							"host": [
@@ -13135,10 +12935,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{third_event_id}}/",
 							"host": [
@@ -13292,10 +13088,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{booking_id}}/",
 							"host": [
@@ -13358,10 +13150,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{second_event_id}}/",
 							"host": [
@@ -13424,10 +13212,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{third_event_id}}/",
 							"host": [
@@ -13600,10 +13384,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{booking_id}}/",
 							"host": [
@@ -13666,10 +13446,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{second_event_id}}/",
 							"host": [
@@ -13732,10 +13508,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}bookings/{{third_event_id}}/",
 							"host": [
@@ -13801,6 +13573,482 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Book first blackout event",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check Response code for request",
+									"pm.test(\"Response code for request is 201\", function(){",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"//  Check if response time less than max allowed.",
+									"var response_max = JSON.parse(globals.response_max);",
+									"pm.test(\"Response time less than \" + response_max.toString() + \"ms\", function(){",
+									"    pm.expect(pm.response.responseTime).to.be.below(response_max);",
+									"});",
+									"",
+									"// Parse response body",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"//Test to see if response schema is valid",
+									"eval(environment.booking_schema_check);",
+									"eval(environment.booking_data_check);",
+									"",
+									"var booking_id = jsonData.booking.booking_id;",
+									"",
+									"//Dynamic variable used for end-point testing later on",
+									"postman.setEnvironmentVariable(\"first_blackout_id\", JSON.stringify(booking_id));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//  Calculate a start date a week from today.",
+									"var later = new Date();",
+									"later.setDate(later.getDate()+7);",
+									"",
+									"//  Get year, day, month from the later time.",
+									"year = later.getFullYear().toString();",
+									"month = (\"0\" + (later.getMonth() + 1).toString()).slice(-2);",
+									"day = (\"0\" + (later.getDate()).toString()).slice(-2);",
+									"",
+									"//  Format starting and ending time for the booking.",
+									"start_time = year + \"-\" + month + \"-\" + day + \"T17:00:00Z\";",
+									"end_time = year + \"-\" + month + \"-\" + day + \"T19:00:00Z\";",
+									"",
+									"//  Store globals.",
+									"pm.globals.set(\"start_time\", JSON.stringify(start_time));",
+									"pm.globals.set(\"end_time\", JSON.stringify(end_time));",
+									"pm.globals.set(\"fees\", JSON.stringify(\"false\"));",
+									"pm.globals.set(\"booking_name\", JSON.stringify(\"BLACKOUT PERIOD\"));",
+									"pm.globals.set(\"booking_contact_information\", JSON.stringify(\"Postman Contact\"));",
+									"pm.globals.set(\"room_id\", pm.environment.get(\"room_id_1\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"start_time\": {{start_time}},\n  \"end_time\": {{end_time}},\n  \"room_id\": {{room_id}},\n  \"fees\": {{fees}},\n  \"booking_name\": {{booking_name}},\n  \"booking_contact_information\": {{booking_contact_information}},\n  \"office_id\" : {{current_office_id}},\n  \"recurring_uuid\": {{pm_blackout_uuid}},\n  \"blackout_flag\": \"Y\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}bookings/",
+							"host": [
+								"{{url}}bookings"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book second blackout event",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check Response code for request",
+									"pm.test(\"Response code for request is 201\", function(){",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"//  Check if response time less than max allowed.",
+									"var response_max = JSON.parse(globals.response_max);",
+									"pm.test(\"Response time less than \" + response_max.toString() + \"ms\", function(){",
+									"    pm.expect(pm.response.responseTime).to.be.below(response_max);",
+									"});",
+									"",
+									"// Parse response body",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"//Test to see if response schema is valid",
+									"eval(environment.booking_schema_check);",
+									"eval(environment.booking_data_check);",
+									"",
+									"var booking_id = jsonData.booking.booking_id;",
+									"",
+									"//Dynamic variable used for end-point testing later on",
+									"postman.setEnvironmentVariable(\"second_blackout_id\", JSON.stringify(booking_id));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//  Calculate a start date a week from today.",
+									"var later = new Date();",
+									"later.setDate(later.getDate()+8);",
+									"",
+									"//  Get year, day, month from the later time.",
+									"year = later.getFullYear().toString();",
+									"month = (\"0\" + (later.getMonth() + 1).toString()).slice(-2);",
+									"day = (\"0\" + (later.getDate()).toString()).slice(-2);",
+									"",
+									"//  Format starting and ending time for the booking.",
+									"start_time = year + \"-\" + month + \"-\" + day + \"T17:00:00Z\";",
+									"end_time = year + \"-\" + month + \"-\" + day + \"T19:00:00Z\";",
+									"",
+									"//  Store globals.",
+									"pm.globals.set(\"start_time\", JSON.stringify(start_time));",
+									"pm.globals.set(\"end_time\", JSON.stringify(end_time));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"start_time\": {{start_time}},\n  \"end_time\": {{end_time}},\n  \"room_id\": {{room_id}},\n  \"fees\": {{fees}},\n  \"booking_name\": {{booking_name}},\n  \"booking_contact_information\": {{booking_contact_information}},\n  \"office_id\" : {{current_office_id}},\n  \"recurring_uuid\": {{pm_blackout_uuid}},\n  \"blackout_flag\": \"Y\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}bookings/",
+							"host": [
+								"{{url}}bookings"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book third blackout event",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check Response code for request",
+									"pm.test(\"Response code for request is 201\", function(){",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"//  Check if response time less than max allowed.",
+									"var response_max = JSON.parse(globals.response_max);",
+									"pm.test(\"Response time less than \" + response_max.toString() + \"ms\", function(){",
+									"    pm.expect(pm.response.responseTime).to.be.below(response_max);",
+									"});",
+									"",
+									"// Parse response body",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"//Test to see if response schema is valid",
+									"eval(environment.booking_schema_check);",
+									"eval(environment.booking_data_check);",
+									"",
+									"var booking_id = jsonData.booking.booking_id;",
+									"",
+									"//Dynamic variable used for end-point testing later on",
+									"postman.setEnvironmentVariable(\"third_blackout_id\", JSON.stringify(booking_id));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//  Calculate a start date a week from today.",
+									"var later = new Date();",
+									"later.setDate(later.getDate()+9);",
+									"",
+									"//  Get year, day, month from the later time.",
+									"year = later.getFullYear().toString();",
+									"month = (\"0\" + (later.getMonth() + 1).toString()).slice(-2);",
+									"day = (\"0\" + (later.getDate()).toString()).slice(-2);",
+									"",
+									"//  Format starting and ending time for the booking.",
+									"start_time = year + \"-\" + month + \"-\" + day + \"T17:00:00Z\";",
+									"end_time = year + \"-\" + month + \"-\" + day + \"T19:00:00Z\";",
+									"",
+									"//  Store globals.",
+									"pm.globals.set(\"start_time\", JSON.stringify(start_time));",
+									"pm.globals.set(\"end_time\", JSON.stringify(end_time));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"start_time\": {{start_time}},\n  \"end_time\": {{end_time}},\n  \"room_id\": {{room_id}},\n  \"fees\": {{fees}},\n  \"booking_name\": {{booking_name}},\n  \"booking_contact_information\": {{booking_contact_information}},\n  \"office_id\" : {{current_office_id}},\n  \"recurring_uuid\": {{pm_blackout_uuid}},\n  \"blackout_flag\": \"Y\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}bookings/",
+							"host": [
+								"{{url}}bookings"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recurring Blackout End-point",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check Response code for request",
+									"pm.test(\"Response code for request is 204\", function(){",
+									"    pm.response.to.have.status(204);",
+									"});",
+									"",
+									"//  Check if response time less than max allowed.",
+									"var response_max = JSON.parse(globals.response_max);",
+									"pm.test(\"Response time less than \" + response_max.toString() + \"ms\", function(){",
+									"    pm.expect(pm.response.responseTime).to.be.below(response_max);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}bookings/recurring/current-office/{{pm_url_blackout_uuid}}",
+							"host": [
+								"{{url}}bookings"
+							],
+							"path": [
+								"recurring",
+								"current-office",
+								"{{pm_url_blackout_uuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Room List End-point (for Delete Recurring Stat)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse response body",
+									"var jsonData = JSON.parse(responseBody);",
+									"var all_rooms = jsonData.rooms;",
+									"var all_room_ids = [];",
+									"",
+									"for (var index in all_rooms) {",
+									"    all_room_ids.push(all_rooms[index].room_id)",
+									"}",
+									"",
+									"pm.globals.set(\"all_room_ids\", JSON.stringify(all_room_ids));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}rooms/",
+							"host": [
+								"{{url}}rooms"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recurring Stat End-point",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check Response code for request",
+									"pm.test(\"Response code for request is 204\", function(){",
+									"    pm.response.to.have.status(204);",
+									"});",
+									"",
+									"//  Check if response time less than max allowed.",
+									"var response_max = JSON.parse(globals.response_max);",
+									"pm.test(\"Response time less than \" + response_max.toString() + \"ms\", function(){",
+									"    pm.expect(pm.response.responseTime).to.be.below(response_max);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// First request we're making\r",
+									"var url = pm.globals.get(\"url\");\r",
+									"var token = pm.globals.get(\"token\");\r",
+									"var all_room_ids = JSON.parse(pm.globals.get(\"all_room_ids\"));\r",
+									"\r",
+									"for (var index in all_room_ids) {\r",
+									"    console.log('room id: ', all_room_ids[index]);\r",
+									"}\r",
+									"\r",
+									"// pm.sendRequest({\r",
+									"//     url: url + \"rooms/\",\r",
+									"//     method: 'GET',\r",
+									"//     header: {\r",
+									"//         \"Authorization\": \"Bearer \" + token,\r",
+									"//     }    \r",
+									"// }, (err, res) => {\r",
+									"//     if (err) {        \r",
+									"//         console.log(\"Error in GET /rooms:\", err);        \r",
+									"//     } else {\r",
+									"//         console.log(res)        \r",
+									"//     }\r",
+									"// });\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}bookings/recurring/stat/{{pm_url_stat_uuid}}",
+							"host": [
+								"{{url}}bookings"
+							],
+							"path": [
+								"recurring",
+								"stat",
+								"{{pm_url_stat_uuid}}"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -13861,10 +14109,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}invigilators/",
 							"host": [
@@ -13909,10 +14153,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}invigilators/offsite/",
 							"host": [
@@ -14133,10 +14373,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}rooms/",
 							"host": [
@@ -14195,10 +14431,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}csrs/me/",
 							"host": [
@@ -14249,10 +14481,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}offices/",
 							"host": [
@@ -14296,10 +14524,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}offices/{{current_office_id}}/slots/",
 							"host": [
@@ -14453,10 +14677,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{appointment_id}}/",
 							"host": [
@@ -14504,10 +14724,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/",
 							"host": [
@@ -14991,10 +15207,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{appointment_id}}/",
 							"host": [
@@ -15043,10 +15255,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{second_appt_id}}/",
 							"host": [
@@ -15095,10 +15303,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{third_appt_id}}/",
 							"host": [
@@ -15242,10 +15446,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{second_appt_id}}/",
 							"host": [
@@ -15307,10 +15507,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{appointment_id}}/",
 							"host": [
@@ -15359,10 +15555,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{third_appt_id}}/",
 							"host": [
@@ -15509,10 +15701,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{appointment_id}}/",
 							"host": [
@@ -15561,10 +15749,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{second_appt_id}}/",
 							"host": [
@@ -15613,10 +15797,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}appointments/{{appointment_id}}/",
 							"host": [
@@ -15694,7 +15874,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b0855807-6d8f-4dac-a069-df907d69a82d",
 								"exec": [
 									"// Check Response code for request",
 									"pm.test(\"Response code for request is 200\", function(){",
@@ -15908,7 +16087,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "70c672a3-0713-4b0d-97e5-c82ff70250d9",
 								"exec": [
 									"// Check Response code for request",
 									"pm.test(\"Response code for request is 200\", function(){",
@@ -16131,10 +16309,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{public_url}}users/appointments/",
 							"host": [
