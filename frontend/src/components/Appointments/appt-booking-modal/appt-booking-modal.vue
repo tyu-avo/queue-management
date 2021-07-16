@@ -86,6 +86,7 @@
             <label class="mb-0">Time</label><br />
             <b-form-input :value="displayStart" disabled />
             <b-button
+                v-show="allow_reschedule"
                 variant="primary"
                 class="mr-3"
                 @click="editAppointTime"
@@ -102,6 +103,7 @@
             <label class="mb-0">Date</label><br />
             <b-form-input :value="displayDate" disabled />
             <b-button
+                v-show="allow_reschedule"
                 variant="primary"
                 class="mr-3"
                 @click="editAppointDate"
@@ -892,6 +894,10 @@ export default class ApptBookingModal extends Vue {
       const start_time = this.app_start_time ? this.convertTimePickerValue(this.app_start_time) : this.app_start_time
       this.start = start_time
       let validate_flag = false
+      if (this.app_start_time.hh === '') {
+        this.time_msg = "Time is Invalid"
+        validate_flag = true
+      }
       if (start_time) {
         if ((new Date(start_time).getHours() <= 8) || (new Date(start_time).getHours() >= 17)){
           if ((new Date(start_time).getHours() === 8)) {
@@ -1076,7 +1082,6 @@ export default class ApptBookingModal extends Vue {
         if ( this.curr_date) {
           if (this.appt_time && !this.appt_date) {
               this.start = new Date(currDateObj.format('YYYY-MM-DD')+' '+this.appt_time)
-              this.app_start_date = new Date(currDateObj.format('YYYY-MM-DD')+' '+this.appt_time)
           }
         }
       }
@@ -1086,7 +1091,6 @@ export default class ApptBookingModal extends Vue {
         if ( this.curr_date) {
           if (!this.appt_time && this.appt_date) {
             this.start = new Date(this.appt_date+' '+currDateObj.format('HH:mm:ss'))
-            this.app_start_time = new Date(this.appt_date+' '+currDateObj.format('HH:mm:ss'))
           }
         }
       }
