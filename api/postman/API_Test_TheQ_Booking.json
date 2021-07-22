@@ -10213,6 +10213,10 @@
 									"pm_url_stat_uuid = JSON.parse(pm.globals.get(\"pm_stat_uuid\"))",
 									"pm.globals.set(\"pm_url_stat_uuid\", pm_url_stat_uuid);",
 									"",
+									"pm.globals.set('pm_stat_series_uuid', '\"pm_recurring_stat_series_uuid\"');",
+									"pm_url_stat_series_uuid = JSON.parse(pm.globals.get(\"pm_stat_series_uuid\"))",
+									"pm.globals.set(\"pm_url_stat_series_uuid\", pm_url_stat_series_uuid);",
+									"",
 									"if (pm.globals.get('use-prefix')) {",
 									"    console.log(\"==> use-prefix exists\");",
 									"    usePrefix = pm.globals.get('use-prefix');",
@@ -13964,7 +13968,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Recurring Stat Bookings End-point",
+					"name": "Delete Recurring Stat (Bookings+Appointment) End-point (for Delete Recurring Stat)",
 					"event": [
 						{
 							"listen": "test",
@@ -13980,7 +13984,27 @@
 									"pm.test(\"Response time less than \" + response_max.toString() + \"ms\", function(){",
 									"    pm.expect(pm.response.responseTime).to.be.below(response_max);",
 									"});",
-									""
+									"",
+									"",
+									"// Clean up appointment (housekeeping)",
+									"var url = pm.globals.get(\"url\");",
+									"var token = pm.globals.get(\"token\");",
+									"",
+									"pm.sendRequest({",
+									"    url: url + \"appointments/recurring/\" + pm.globals.get(\"pm_url_stat_uuid\"),",
+									"    method: 'DELETE',",
+									"    header: {",
+									"        \"Authorization\": \"Bearer \" + token,",
+									"        'Content-Type':'application/json',",
+									"    },",
+									"    body: {}    ",
+									"}, (err, res) => {",
+									"    if (err) {        ",
+									"        console.log(\"Error in DELETE bookings/recurring/stat/ :\", err);        ",
+									"    } else {",
+									"        console.log(res)        ",
+									"    }",
+									"}); "
 								],
 								"type": "text/javascript"
 							}
@@ -14146,68 +14170,6 @@
 							"path": [
 								"recurring",
 								"stat",
-								"{{pm_url_stat_uuid}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Recurring Stat Appointment End-point Copy",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// Check Response code for request",
-									"pm.test(\"Response code for request is 204\", function(){",
-									"    pm.response.to.have.status(204);",
-									"});",
-									"",
-									"//  Check if response time less than max allowed.",
-									"var response_max = JSON.parse(globals.response_max);",
-									"pm.test(\"Response time less than \" + response_max.toString() + \"ms\", function(){",
-									"    pm.expect(pm.response.responseTime).to.be.below(response_max);",
-									"});",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}appointments/recurring/{{pm_url_stat_uuid}}",
-							"host": [
-								"{{url}}appointments"
-							],
-							"path": [
-								"recurring",
 								"{{pm_url_stat_uuid}}"
 							]
 						}
@@ -16022,6 +15984,228 @@
 							"path": [
 								"recurring",
 								"{{pm_url_uuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recurring Stat Series (Appointment + Bookings) End-point",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check Response code for request",
+									"pm.test(\"Response code for request is 204\", function(){",
+									"    pm.response.to.have.status(204);",
+									"});",
+									"",
+									"//  Check if response time less than max allowed.",
+									"var response_max = JSON.parse(globals.response_max);",
+									"pm.test(\"Response time less than \" + response_max.toString() + \"ms\", function(){",
+									"    pm.expect(pm.response.responseTime).to.be.below(response_max);",
+									"});",
+									"",
+									"// Clean up bookings (housekeeping)",
+									"var url = pm.globals.get(\"url\");",
+									"var token = pm.globals.get(\"token\");",
+									"",
+									"pm.sendRequest({",
+									"    url: url + \"bookings/recurring/stat/\" + pm.globals.get(\"pm_url_stat_series_uuid\"),",
+									"    method: 'DELETE',",
+									"    header: {",
+									"        \"Authorization\": \"Bearer \" + token,",
+									"        'Content-Type':'application/json',",
+									"    },",
+									"    body: {}    ",
+									"}, (err, res) => {",
+									"    if (err) {        ",
+									"        console.log(\"Error in DELETE bookings/recurring/stat/ :\", err);        ",
+									"    } else {",
+									"        console.log(res)        ",
+									"    }",
+									"}); ",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//  Calculate a start date 15 days from today.\r",
+									"var start_stat = new Date();\r",
+									"start_stat = addDays(start_stat, 30);\r",
+									"start_stat = getNextBusinessDay(start_stat);\r",
+									"\r",
+									"var end_stat = new Date();\r",
+									"end_stat = addDays(start_stat, 1);\r",
+									"\r",
+									"//  Get year, day, month from the later time.\r",
+									"start_year = start_stat.getFullYear().toString();\r",
+									"start_month = (\"0\" + (start_stat.getMonth() + 1).toString()).slice(-2);\r",
+									"start_day = (\"0\" + (start_stat.getDate()).toString()).slice(-2);\r",
+									"\r",
+									"end_year = end_stat.getFullYear().toString();\r",
+									"end_month = (\"0\" + (end_stat.getMonth() + 1).toString()).slice(-2);\r",
+									"end_day = (\"0\" + (end_stat.getDate()).toString()).slice(-2);\r",
+									"\r",
+									"//  Format starting and ending time for the booking.\r",
+									"start_time = start_year + \"-\" + start_month + \"-\" + start_day + \"T07:00:00Z\";\r",
+									"end_time = end_year + \"-\" + end_month + \"-\" + end_day + \"T06:59:59Z\";\r",
+									"booking_name = \"STAT PERIOD_Test Office\";\r",
+									"booking_contact_information = \"Postman Contact\";\r",
+									"pm_stat_series_uuid = pm.globals.get(\"pm_stat_series_uuid\").replace(/\"/g,\"\");\r",
+									"office_id = parseInt(environment.current_office_id);\r",
+									"\r",
+									"// Create bookings\r",
+									"var url = pm.globals.get(\"url\");\r",
+									"var token = pm.globals.get(\"token\");\r",
+									"var all_room_ids = JSON.parse(pm.globals.get(\"all_room_ids\"));\r",
+									"\r",
+									"console.log(\"office_id -->\", office_id);\r",
+									"\r",
+									"// create appointment (parent)\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: url + \"appointments/\",\r",
+									"    method: 'POST',\r",
+									"    header: {\r",
+									"        \"Authorization\": \"Bearer \" + token,\r",
+									"        'Content-Type':'application/json',\r",
+									"    },\r",
+									"    body: {\r",
+									"        mode: 'application/json',\r",
+									"        raw: JSON.stringify({\"start_time\": start_time,\r",
+									"        \"end_time\": end_time,\r",
+									"        \"citizen_name\": booking_name,\r",
+									"        \"contact_information\": booking_contact_information,\r",
+									"        \"office_id\": office_id,\r",
+									"        \"recurring_uuid\": pm_stat_series_uuid,\r",
+									"        \"blackout_flag\": \"N\",\r",
+									"        \"comments\": \"Postman STAT Day\",\r",
+									"        \"stat_flag\": true})            \r",
+									"    }    \r",
+									"}, (err, res) => {\r",
+									"    if (err) {        \r",
+									"        console.log(\"Error in POST /appointments:\", err);        \r",
+									"    } else {\r",
+									"        console.log(res)        \r",
+									"    }\r",
+									"}); \r",
+									"\r",
+									"// room_id is NULL (off-site)\r",
+									"pm.sendRequest({\r",
+									"    url: url + \"bookings/\",\r",
+									"    method: 'POST',\r",
+									"    header: {\r",
+									"        \"Authorization\": \"Bearer \" + token,\r",
+									"        'Content-Type':'application/json',\r",
+									"    },\r",
+									"    body: {\r",
+									"        mode: 'application/json',\r",
+									"        raw: JSON.stringify({\"start_time\": start_time,\r",
+									"        \"end_time\": end_time,\r",
+									"        \"booking_name\": booking_name,\r",
+									"        \"booking_contact_information\": booking_contact_information,\r",
+									"        \"office_id\": office_id,\r",
+									"        \"recurring_uuid\": pm_stat_series_uuid,\r",
+									"        \"blackout_flag\": \"N\",\r",
+									"        \"blackout_notes\": \"Postman STAT Day\",\r",
+									"        \"stat_flag\": true,\r",
+									"        \"for_stat\": true})            \r",
+									"    }    \r",
+									"}, (err, res) => {\r",
+									"    if (err) {        \r",
+									"        console.log(\"Error in POST /bookings:\", err);        \r",
+									"    } else {\r",
+									"        console.log(res)        \r",
+									"    }\r",
+									"}); \r",
+									"\r",
+									"// for all rooms under current office\r",
+									"for (var index in all_room_ids) {\r",
+									"    var room_id = all_room_ids[index];\r",
+									"    console.log('Creating a STAT for the room id: ', room_id, ' at current office');\r",
+									"\r",
+									"    pm.sendRequest({\r",
+									"        url: url + \"bookings/\",\r",
+									"        method: 'POST',\r",
+									"        header: {\r",
+									"            \"Authorization\": \"Bearer \" + token,\r",
+									"            'Content-Type':'application/json',\r",
+									"        },\r",
+									"        body: {\r",
+									"            mode: 'application/json',\r",
+									"            raw: JSON.stringify({\"start_time\": start_time,\r",
+									"            \"end_time\": end_time,\r",
+									"            \"room_id\": room_id,\r",
+									"            \"booking_name\": booking_name,\r",
+									"            \"booking_contact_information\": booking_contact_information,\r",
+									"            \"office_id\": office_id,\r",
+									"            \"recurring_uuid\": pm_stat_series_uuid,\r",
+									"            \"blackout_flag\": \"N\",\r",
+									"            \"blackout_notes\": \"Postman STAT Day\",\r",
+									"            \"stat_flag\": true,\r",
+									"            \"for_stat\": true})            \r",
+									"        }    \r",
+									"    }, (err, res) => {\r",
+									"        if (err) {        \r",
+									"            console.log(\"Error in POST /bookings:\", err);        \r",
+									"        } else {\r",
+									"            console.log(res)        \r",
+									"        }\r",
+									"    });    \r",
+									"}\r",
+									"\r",
+									"function addDays(date, days) {\r",
+									"  const copy = new Date(Number(date))\r",
+									"  copy.setDate(date.getDate() + days)\r",
+									"  return copy\r",
+									"}\r",
+									"\r",
+									"function getNextBusinessDay(date) {\r",
+									"  // Copy date so don't affect original\r",
+									"  date = new Date(+date);\r",
+									"  // Add days until get not Sat or Sun\r",
+									"  do {\r",
+									"    date.setDate(date.getDate() + 1);\r",
+									"  } while (!(date.getDay() % 6))\r",
+									"  return date;\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}appointments/all-stat/{{pm_url_stat_series_uuid}}",
+							"host": [
+								"{{url}}appointments"
+							],
+							"path": [
+								"all-stat",
+								"{{pm_url_stat_series_uuid}}"
 							]
 						}
 					},
