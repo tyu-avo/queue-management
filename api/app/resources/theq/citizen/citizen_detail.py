@@ -16,7 +16,7 @@ from datetime import datetime
 from flask import request, g
 from flask_restx import Resource
 from qsystem import api, api_call_with_retry, db, socketio, my_print
-from app.models.theq import Citizen, CSR, Counter, Office
+from app.models.theq import Citizen, CSR, Counter, Office, ServiceReq, Period
 from marshmallow import ValidationError
 from app.schemas.theq import CitizenSchema
 from sqlalchemy import exc
@@ -25,6 +25,8 @@ from app.utilities.auth_util import Role, has_any_role
 from app.auth.auth import jwt
 from app.utilities.email import send_email, get_walkin_reminder_email_contents
 from app.utilities.sms import send_walkin_reminder_sms
+from sqlalchemy.dialects import postgresql
+from sqlalchemy.orm import raiseload, joinedload
 
 @api.route("/citizens/<int:id>/", methods=["GET", "PUT"])
 class CitizenDetail(Resource):
@@ -34,7 +36,13 @@ class CitizenDetail(Resource):
     @jwt.has_one_of_roles([Role.internal_user.value])
     def get(self, id):
         try:
-            citizen = Citizen.query.filter_by(citizen_id=id).first()
+            citizens = Citizen.query \
+                .options(joinedload(Citizen.service_reqs).joinedload(ServiceReq.periods).options(raiseload(Period.sr),joinedload(Period.csr, innerjoin=True).raiseload('*')),raiseload(Citizen.office),raiseload(Citizen.counter),raiseload(Citizen.user)) \
+                .filter_by(citizen_id=id)
+
+            print('*****GET citizen_detail.py Citizen query: *****')
+            print(str(citizens.statement.compile(dialect=postgresql.dialect())))
+            citizen = citizens.first()
             citizen_ticket = "None"
             if hasattr(citizen, 'ticket_number'):
                 citizen_ticket = str(citizen.ticket_number)
@@ -59,7 +67,13 @@ class CitizenDetail(Resource):
             return {'message': 'No input data received for updating citizen'}, 400
 
         csr = CSR.find_by_username(g.jwt_oidc_token_info['username'])
-        citizen = Citizen.query.filter_by(citizen_id=id).first()
+        citizens = Citizen.query \
+            .options(joinedload(Citizen.service_reqs).joinedload(ServiceReq.periods).options(raiseload(Period.sr),joinedload(Period.csr, innerjoin=True).raiseload('*')),raiseload(Citizen.office),raiseload(Citizen.counter),raiseload(Citizen.user)) \
+            .filter_by(citizen_id=id)
+       
+        print('*****PUT citizen_detail.py Citizen query: *****')
+        print(str(citizens.statement.compile(dialect=postgresql.dialect())))
+        citizen = citizens.first()
         my_print("==> PUT /citizens/" + str(citizen.citizen_id) + '/, Ticket: ' + str(citizen.ticket_number))
         if not ((json_data.get('is_first_reminder', False) or json_data.get('is_second_reminder', False))):
             try:
@@ -108,7 +122,13 @@ class CitizenDetail(Resource):
             SnowPlow.add_citizen(citizen, csr)
 
         result = self.citizen_schema.dump(citizen)
-        citizen = Citizen.query.filter_by(citizen_id=citizen.citizen_id).first()
+        citizens = Citizen.query \
+                .options(joinedload(Citizen.service_reqs, innerjoin=True).joinedload(ServiceReq.periods, innerjoin=True).options(raiseload(Period.sr),joinedload(Period.csr, innerjoin=True).raiseload('*')),raiseload(Citizen.office),raiseload(Citizen.counter),raiseload(Citizen.user)) \
+                .filter_by(citizen_id=citizen.citizen_id)
+                
+        print('*****PUT citizen_detail.py Citizen query NUMBER 2: *****')
+        print(str(citizens.statement.compile(dialect=postgresql.dialect())))
+        citizen = citizens.first()
         socketio.emit('update_active_citizen', result, room=csr.office.office_name)
 
         return {'citizen': result,
