@@ -38,7 +38,7 @@ class CitizenBeginService(Resource):
 
         with lock:
             citizen = Citizen.query\
-            .options(joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.periods).options(joinedload(Period.ps).options(raiseload('*')),joinedload(Period.csr).options(raiseload('*')),raiseload('*')), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload(Service.parent).options(raiseload('*'))),raiseload('*'))), joinedload(Citizen.office).options(joinedload(Office.sb),raiseload('*')), raiseload(Citizen.counter),raiseload(Citizen.user)) \
+            .options(joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.periods).options(joinedload(Period.ps).options(raiseload('*')),joinedload(Period.csr).options(raiseload('*')),raiseload('*')), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload(Service.parent).options(raiseload('*'))),raiseload('*'))), joinedload(Citizen.office).options(joinedload(Office.sb),raiseload('*')), raiseload(Citizen.user)) \
             .filter_by(citizen_id=id)
             print('***** citizen_begin_service.py v1.0 query: *****')
             print(str(citizen.statement.compile(dialect=postgresql.dialect())))
