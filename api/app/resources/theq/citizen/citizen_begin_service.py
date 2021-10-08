@@ -70,6 +70,7 @@ class CitizenBeginService(Resource):
                 if active_period.ps.ps_name == "Ticket Creation":
                     snowplow_event = "servecitizen"
 
+                print('***** citizen_begin_service.py p4.5 *****')
                 active_service_request.begin_service(csr, snowplow_event)
                 print('***** citizen_begin_service.py p5 *****')
             except TypeError:
