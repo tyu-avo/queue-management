@@ -80,6 +80,7 @@ class CitizenBeginService(Resource):
                 socketio.emit('update_customer_list', {}, room=csr.office.office_name)
                 
             result = self.citizen_schema.dump(citizen)
+            print('**** citizen begin service dump called ****')
             socketio.emit('update_active_citizen', result, room=csr.office.office_name)
 
         return {'citizen': result,
