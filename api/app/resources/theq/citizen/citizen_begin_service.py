@@ -79,8 +79,9 @@ class CitizenBeginService(Resource):
             if snowplow_event != "beginservice":
                 socketio.emit('update_customer_list', {}, room=csr.office.office_name)
                 
+            print('**** citizen begin service before dump called ****')
             result = self.citizen_schema.dump(citizen)
-            print('**** citizen begin service dump called ****')
+            print('**** citizen begin service after dump called ****')
             socketio.emit('update_active_citizen', result, room=csr.office.office_name)
 
         return {'citizen': result,
