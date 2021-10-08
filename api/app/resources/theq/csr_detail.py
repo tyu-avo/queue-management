@@ -21,6 +21,8 @@ from app.schemas.theq import CSRSchema
 from app.utilities.auth_util import Role, has_any_role
 from sqlalchemy import or_
 from app.auth.auth import jwt
+from sqlalchemy.orm import raiseload
+from sqlalchemy.dialects import postgresql
 
 
 @api.route("/csrs/<int:id>/", methods=["PUT"])
@@ -48,12 +50,16 @@ class Services(Resource):
 
         #  See if CSR has any open tickets.
         citizen = Citizen.query \
+            .options(raiseload(Citizen.service_reqs), raiseload(Citizen.cs),raiseload(Citizen.office),raiseload(Citizen.counter),raiseload(Citizen.user)) \
             .join(Citizen.service_reqs) \
             .join(ServiceReq.periods) \
             .filter(Period.time_end.is_(None)) \
             .filter(Period.csr_id==id) \
-            .filter(or_(Period.ps_id==period_state_invited.ps_id, Period.ps_id==period_state_being_served.ps_id)) \
-            .all()
+            .filter(or_(Period.ps_id==period_state_invited.ps_id, Period.ps_id==period_state_being_served.ps_id))
+
+        print('***** csr_detail.py citizen query: *****')
+        print(str(citizen.statement.compile(dialect=postgresql.dialect())))
+        citizen = citizen.all()
 
         if len(citizen) != 0:
             return {'message': 'CSR has an open ticket and cannot be edited.'}, 403
