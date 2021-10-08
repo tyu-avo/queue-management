@@ -43,7 +43,7 @@ class CitizenBeginService(Resource):
             print('***** citizen_begin_service.py v1.0 query: *****')
             print(str(citizen.statement.compile(dialect=postgresql.dialect())))
             citizen = citizen.first()
-
+            print('***** citizen_begin_service.py p1 *****')
             pending_service_state = SRState.get_state_by_name("Active")
 
             if citizen is None:
@@ -53,6 +53,7 @@ class CitizenBeginService(Resource):
                 my_print("==> POST /citizens/" + str(citizen.citizen_id) + '/begin_service/, Ticket: '
                          + citizen.ticket_number)
 
+            print('***** citizen_begin_service.py p2 *****')
             active_service_request = citizen.get_active_service_request()
 
             if active_service_request is None:
@@ -60,20 +61,24 @@ class CitizenBeginService(Resource):
 
             try:
                 #  Get Snowplow call.
+                print('***** citizen_begin_service.py p3 *****')
                 active_period = active_service_request.get_active_period()
                 snowplow_event = "beginservice"
+                print('***** citizen_begin_service.py p4 *****')
                 if active_period.ps.ps_name == "On hold":
                     snowplow_event = "invitefromhold"
                 if active_period.ps.ps_name == "Ticket Creation":
                     snowplow_event = "servecitizen"
 
                 active_service_request.begin_service(csr, snowplow_event)
+                print('***** citizen_begin_service.py p5 *****')
             except TypeError:
                 return {"message": "Citizen  has already been invited"}, 400
 
             active_service_request.sr_state_id = pending_service_state.sr_state_id
 
             db.session.add(citizen)
+            print('***** citizen_begin_service.py p6 *****')
             db.session.commit()
 
             if snowplow_event != "beginservice":
