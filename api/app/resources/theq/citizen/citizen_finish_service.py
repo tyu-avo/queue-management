@@ -38,7 +38,7 @@ class CitizenFinishService(Resource):
     def post(self, id):
         csr = CSR.find_by_username(g.jwt_oidc_token_info['username'])
         citizen = Citizen.query\
-        .options(joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.periods).options(joinedload(Period.ps).options(raiseload('*')),joinedload(Period.csr).options(raiseload('*')),raiseload('*')), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload(Service.parent).options(raiseload('*'))),raiseload('*'))), raiseload(Citizen.counter),raiseload(Citizen.user), joinedload(Citizen.office).options(joinedload(Office.sb),raiseload('*'))) \
+        .options(joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.periods).options(joinedload(Period.ps).options(raiseload('*')),joinedload(Period.csr).options(raiseload('*')),raiseload('*')), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload(Service.parent).options(raiseload('*'))),raiseload('*'))), raiseload(Citizen.counter),raiseload(Citizen.user), joinedload(Citizen.counter), joinedload(Citizen.office).options(joinedload(Office.sb),raiseload('*'))) \
         .filter_by(citizen_id=id)
         print('***** citizen_finish_service.py query: *****')
         print(str(citizen.statement.compile(dialect=postgresql.dialect())))
