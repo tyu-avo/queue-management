@@ -14,13 +14,15 @@ limitations under the License.'''
 
 from flask import g
 from flask_restx import Resource
+from app.models.theq.service import Service
 from qsystem import api, api_call_with_retry, db, socketio, my_print
-from app.models.theq import Citizen, CSR
+from app.models.theq import Citizen, CSR, ServiceReq, Period
 from app.models.theq import SRState
 from app.schemas.theq import CitizenSchema
 from app.utilities.auth_util import Role, has_any_role
 from app.auth.auth import jwt
-
+from sqlalchemy.orm import raiseload, joinedload
+from sqlalchemy.dialects import postgresql
 
 @api.route("/citizens/<int:id>/place_on_hold/", methods=["POST"])
 class CitizenPlaceOnHold(Resource):
@@ -32,7 +34,14 @@ class CitizenPlaceOnHold(Resource):
     def post(self, id):
         csr = CSR.find_by_username(g.jwt_oidc_token_info['username'])
 
-        citizen = Citizen.query.filter_by(citizen_id=id, office_id=csr.office_id).first()
+        citizen = Citizen.query\
+        .options(joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.periods).options(joinedload(Period.ps).options(raiseload('*')),joinedload(Period.csr).options(raiseload('*')),raiseload('*')), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload(Service.parent).options(raiseload('*'))),raiseload('*'))), raiseload(Citizen.counter),raiseload(Citizen.user), raiseload(Citizen.office)) \
+        .filter_by(citizen_id=id, office_id=csr.office_id)
+        print('***** citizen_place_on_hold.py opt query: *****')
+        print(str(citizen.statement.compile(dialect=postgresql.dialect())))
+        citizen = citizen.first()
+
+
         my_print("==> POST /citizens/" + str(citizen.citizen_id) + '/place_on_hold/, Ticket: ' + citizen.ticket_number)
         active_service_request = citizen.get_active_service_request()
 
