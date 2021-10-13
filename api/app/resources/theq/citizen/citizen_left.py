@@ -14,8 +14,9 @@ limitations under the License.'''
 
 from flask import request, g
 from flask_restx import Resource
+from app.models.theq.office import Office
 from qsystem import api, api_call_with_retry, db, socketio, my_print
-from app.models.theq import Citizen, CSR, CitizenState, ServiceReq, Period, Service
+from app.models.theq import Citizen, CSR, CitizenState, ServiceReq, Period, Service, Office
 from app.schemas.theq import CitizenSchema, ServiceReqSchema
 from app.models.theq import SRState
 from datetime import datetime
@@ -43,7 +44,7 @@ class CitizenLeft(Resource):
         my_print("    ++> Time before citizen = statement: " + str(datetime.now()))
 
         citizen = Citizen.query\
-            .options(joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.sr_state), joinedload(ServiceReq.channel), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload('*')), raiseload('*')), joinedload(ServiceReq.periods).options(joinedload(Period.ps), joinedload(Period.csr).options(raiseload('*')), raiseload('*')), raiseload('*')), joinedload(Citizen.office).options(raiseload('*')), raiseload(Citizen.counter), raiseload(Citizen.user)) \
+            .options(joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.sr_state), joinedload(ServiceReq.channel), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload('*')), raiseload('*')), joinedload(ServiceReq.periods).options(joinedload(Period.ps), joinedload(Period.csr).options(raiseload('*')), raiseload('*')), raiseload('*')), joinedload(Citizen.office).options(joinedload(Office.sb), raiseload('*')), raiseload(Citizen.counter), raiseload(Citizen.user)) \
             .filter_by(citizen_id=id)
 
         print('***** citizen_left.py opt query: *****')
