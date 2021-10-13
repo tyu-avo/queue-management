@@ -15,7 +15,7 @@ limitations under the License.'''
 from flask import request, g
 from flask_restx import Resource
 from qsystem import api, api_call_with_retry, db, socketio, my_print
-from app.models.theq import Citizen, CSR, CitizenState
+from app.models.theq import Citizen, CSR, CitizenState, ServiceReq, Period, Service
 from app.schemas.theq import CitizenSchema, ServiceReqSchema
 from app.models.theq import SRState
 from datetime import datetime
@@ -23,6 +23,8 @@ from app.utilities.snowplow import SnowPlow
 import os
 from app.utilities.auth_util import Role, has_any_role
 from app.auth.auth import jwt
+from sqlalchemy.orm import raiseload, joinedload
+from sqlalchemy.dialects import postgresql
 
 
 @api.route("/citizens/<int:id>/citizen_left/", methods=['POST'])
@@ -39,7 +41,20 @@ class CitizenLeft(Resource):
         my_print("++> POST API call time before csr = statement: " + str(datetime.now()))
         csr = CSR.find_by_username(g.jwt_oidc_token_info['username'])
         my_print("    ++> Time before citizen = statement: " + str(datetime.now()))
-        citizen = Citizen.query.filter_by(citizen_id=id).first()
+
+        # citizen = Citizen.query.filter_by(citizen_id=id)
+        # print('***** citizen_left.py orig query: *****')
+        # print(str(citizen.statement.compile(dialect=postgresql.dialect())))
+        # citizen = citizen.first()
+
+        citizen = Citizen.query\
+            .options(joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.sr_state), joinedload(ServiceReq.channel), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload('*')), raiseload('*')), joinedload(ServiceReq.periods).options(joinedload(Period.ps), joinedload(Period.csr).options(raiseload('*')), raiseload('*')), raiseload('*')), raiseload(Citizen.office), raiseload(Citizen.counter), raiseload(Citizen.user)) \
+            .filter_by(citizen_id=id)
+
+        print('***** citizen_left.py opt query: *****')
+        print(str(citizen.statement.compile(dialect=postgresql.dialect())))
+
+        citizen = citizen.first()
 
         my_print("    ++> Time before citizen ID statement: " + str(datetime.now()))
         citizen_id_string = self.get_citizen_string(citizen)
