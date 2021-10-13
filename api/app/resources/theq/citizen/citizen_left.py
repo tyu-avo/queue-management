@@ -42,11 +42,6 @@ class CitizenLeft(Resource):
         csr = CSR.find_by_username(g.jwt_oidc_token_info['username'])
         my_print("    ++> Time before citizen = statement: " + str(datetime.now()))
 
-        # citizen = Citizen.query.filter_by(citizen_id=id)
-        # print('***** citizen_left.py orig query: *****')
-        # print(str(citizen.statement.compile(dialect=postgresql.dialect())))
-        # citizen = citizen.first()
-
         citizen = Citizen.query\
             .options(joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.sr_state), joinedload(ServiceReq.channel), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload('*')), raiseload('*')), joinedload(ServiceReq.periods).options(joinedload(Period.ps), joinedload(Period.csr).options(raiseload('*')), raiseload('*')), raiseload('*')), raiseload(Citizen.office), raiseload(Citizen.counter), raiseload(Citizen.user)) \
             .filter_by(citizen_id=id)
