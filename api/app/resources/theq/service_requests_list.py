@@ -16,7 +16,7 @@ from flask import request, g
 from flask_restx import Resource
 from datetime import datetime, timedelta
 from qsystem import api, api_call_with_retry, db, socketio
-from app.models.theq import Citizen, CitizenState, CSR, Period, PeriodState, Service, ServiceReq, SRState
+from app.models.theq import Citizen, CitizenState, CSR, Period, PeriodState, Service, ServiceReq, SRState, Office
 from app.schemas.theq import CitizenSchema, ServiceReqSchema
 from marshmallow import ValidationError
 from app.utilities.snowplow import SnowPlow
@@ -104,7 +104,7 @@ class ServiceRequestsList(Resource):
         try:
 
             citizen = Citizen.query \
-                .options(joinedload(Citizen.cs),joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.sr_state),joinedload(ServiceReq.citizen).options(raiseload('*')), joinedload(ServiceReq.periods).options(joinedload(Period.ps),joinedload(Period.csr).options(raiseload('*'))), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload('*')),raiseload('*'))),raiseload(Citizen.office),raiseload(Citizen.counter),raiseload(Citizen.user)) 
+                .options(joinedload(Citizen.cs),joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.sr_state),joinedload(ServiceReq.citizen).options(raiseload('*')), joinedload(ServiceReq.periods).options(joinedload(Period.ps),joinedload(Period.csr).options(raiseload('*'))), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload('*')),raiseload('*'))),raiseload(Citizen.counter),raiseload(Citizen.user),joinedload(Citizen.office).options(joinedload(Office.sb),raiseload('*'))) 
             print('***** service_requests_list.py citizen query: *****')
             print(str(citizen.statement.compile(dialect=postgresql.dialect())))
             citizen = citizen.get(service_request.citizen_id)
