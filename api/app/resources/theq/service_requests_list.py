@@ -102,11 +102,13 @@ class ServiceRequestsList(Resource):
         print('***** service_requests_list.py citizen = none: *****')
         citizen = None
         try:
+
             citizen = Citizen.query \
-                .options(raiseload(Citizen.office),raiseload(Citizen.counter),raiseload(Citizen.user)) \
-                .get(service_request.citizen_id)
+                .options(joinedload(Citizen.cs),joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.sr_state),joinedload(ServiceReq.citizen).options(raiseload('*')), joinedload(ServiceReq.periods).options(joinedload(Period.ps),joinedload(Period.csr).options(raiseload('*'))), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload('*')),raiseload('*'))),raiseload(Citizen.office),raiseload(Citizen.counter),raiseload(Citizen.user)) 
             print('***** service_requests_list.py citizen query: *****')
-            # print(str(citizen.statement.compile(dialect=postgresql.dialect())))
+            print(str(citizen.statement.compile(dialect=postgresql.dialect())))
+            citizen = citizen.get(service_request.citizen_id)
+
         except:
             print("==> An exception getting citizen info")
             print("    --> CSR:       " + csr.username)
