@@ -23,6 +23,8 @@ from app.utilities.snowplow import SnowPlow
 import json
 from app.utilities.auth_util import Role, has_any_role
 from app.auth.auth import jwt
+from sqlalchemy.orm import raiseload, joinedload
+from sqlalchemy.dialects import postgresql
 
 
 def get_service_request(self, json_data, csr):
@@ -97,10 +99,16 @@ class ServiceRequestsList(Resource):
 
         active_sr_state = SRState.get_state_by_name("Active")
         complete_sr_state = SRState.get_state_by_name("Complete")
-
+        print('***** service_requests_list.py citizen = none: *****')
         citizen = None
         try:
-            citizen = Citizen.query.get(service_request.citizen_id)
+
+            citizen = Citizen.query \
+                .options(joinedload(Citizen.cs),joinedload(Citizen.service_reqs).options(joinedload(ServiceReq.sr_state),joinedload(ServiceReq.citizen).options(raiseload('*')), joinedload(ServiceReq.periods).options(joinedload(Period.ps),joinedload(Period.csr).options(raiseload('*'))), joinedload(ServiceReq.service).options(joinedload(Service.parent).options(raiseload('*')),raiseload('*'))),raiseload(Citizen.office),raiseload(Citizen.counter),raiseload(Citizen.user)) 
+            print('***** service_requests_list.py citizen query: *****')
+            print(str(citizen.statement.compile(dialect=postgresql.dialect())))
+            citizen = citizen.get(service_request.citizen_id)
+
         except:
             print("==> An exception getting citizen info")
             print("    --> CSR:       " + csr.username)
@@ -108,7 +116,7 @@ class ServiceRequestsList(Resource):
 
         if citizen is None:
             return {"message": "No matching citizen found for citizen_id"}, 400
-
+        
         service, message, code = get_service(service_request, json_data, csr)
         if (service is None):
             return {"message": message}, code

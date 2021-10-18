@@ -21,8 +21,11 @@ from app.schemas.theq import CSRSchema
 from app.utilities.auth_util import Role, has_any_role
 from sqlalchemy import or_
 from app.auth.auth import jwt
+
 from sqlalchemy.dialects import postgresql
 from sqlalchemy.orm import raiseload
+from sqlalchemy.orm import raiseload
+from sqlalchemy.dialects import postgresql
 
 
 @api.route("/csrs/<int:id>/", methods=["PUT"])
@@ -55,9 +58,9 @@ class Services(Resource):
             .filter(Period.csr_id==id) \
             .filter(or_(Period.ps_id==period_state_invited.ps_id, Period.ps_id==period_state_being_served.ps_id))
 
-        print('***** csr_detail.py Citizen query: *****')
+
+        print('***** csr_detail.py citizen query: *****')
         print(str(citizen.statement.compile(dialect=postgresql.dialect())))
-        
         citizen = citizen.all()
 
         if len(citizen) != 0:
