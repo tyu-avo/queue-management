@@ -59,7 +59,8 @@ def find_citizen(counter_id, active_citizen_state, csr, waiting_period_state):
         .filter(Period.time_end.is_(None)) \
         .order_by(Citizen.priority, Citizen.start_time) \
            
-    print('***** citizen_generic_invite find orig.py query: *****')
+
+    print('***** citizen_generic_invite find opt query: *****')
     print(str(citizen.statement.compile(dialect=postgresql.dialect())))
 
     return citizen.first()
@@ -77,7 +78,8 @@ def find_citizen2(active_citizen_state, csr, waiting_period_state):
         .filter(Period.time_end.is_(None)) \
         .order_by(Citizen.priority, Citizen.citizen_id) \
 
-    print('***** citizen_generic_invite find2 orig.py query: *****')
+
+    print('***** citizen_generic_invite find2 opt query: *****')
     print(str(citizen.statement.compile(dialect=postgresql.dialect())))
 
     return citizen.first()
