@@ -1,8 +1,8 @@
 <template>
   <v-card-text>
-    <v-col justify="center" class="pt-0">
-      <v-row class="align-row-1 bcsc-btn" v-if="!hideBCServicesCard">
-        <v-col class="fill-width">
+    <v-col justify="full-width" class="pt-0">
+      <v-row class="align-new-row" >
+        <v-col align-self="baseline" class="bcsc-btn" v-if="!hideBCServicesCard">
           <v-btn
             width="220"
             large
@@ -11,25 +11,8 @@
           >
             Login with BC Services Card
           </v-btn>
-          <a class="link-w-icon mt-6" @click="clickHyperlink('https://www2.gov.bc.ca/gov/content?id=B2B3A21E797A421A8FD39EEA86E245D6','Info: About the BC Services Card')"
-            target="_blank" rel="noopener noreferrer" >
-            <v-icon small class="mr-2">mdi-open-in-new</v-icon>
-            <span>Learn more about BC Services Card app</span>
-          </a>
         </v-col>
-        <v-col class="align-row-2 fill-width" v-if="!($vuetify.breakpoint.xs)">
-          <v-img
-            v-if="!($vuetify.breakpoint.xs)"
-            class="login-logo"
-            :src="require('@/assets/img/BCServicesCard.png')"
-            max-width="132"
-            contain
-            data-cy="step-4-image-bcsc"
-          ></v-img>
-        </v-col>
-      </v-row>
-      <v-row class="align-row-1 bcsc-btn">
-        <v-col class="fill-width">
+        <v-col class="bceid-btn" align-self="baseline">
           <v-btn
           width="220"
           large
@@ -39,45 +22,21 @@
         >
         Login with Basic BCeID
         </v-btn>
-        <a class="link-w-icon mt-6"
-          target="_blank" rel="noopener noreferrer" @click="clickHyperlink('https://www.bceid.ca/directories/bluepages/details.aspx?serviceID=6971','Info: About the BCeID')">
-          <v-icon small class="mr-2">mdi-open-in-new</v-icon>
-          <span>Learn how to register for a Basic BCeID account</span>
-        </a>
-        </v-col>
-        <v-col class="align-row-2 fill-width" v-if="!($vuetify.breakpoint.xs)">
-        <v-img
-            v-if="!($vuetify.breakpoint.xs)"
-            class="login-logo"
-            :src="require('@/assets/img/bceid_logo.jpg')"
-            max-width="132"
-            contain
-            data-cy="step-4-image-bceid-login"
-          ></v-img>
         </v-col>
       </v-row>
-      <v-row class="text-center bcsc-btn">
-        <v-col class="create-bceid"> <h3>Need a BC Services Card or a Basic BCeID account?</h3></v-col>
+      <v-row class="align-new-row">
+        <v-col class="center"> <h3>Need an account?</h3></v-col>
       </v-row>
-      <v-row class="align-row-1 bcsc-btn" v-if="!hideBCServicesCard">
-        <v-col class="fill-width">
+      <v-row class="full-width bcsc-btn" >
+        <v-col class="align-new-row">
           <v-btn
             width="220"
             large
             color="primary"
-            @click="createBCServicesCard(BCServicesCardURL)"
+            @click="createBCEID(BCEIDRegistrationURL)"
           >
-            Get a BC Services Card
+            Register for a BCEID
           </v-btn>
-        </v-col>
-        <v-col class="align-row-2 fill-width" v-if="!($vuetify.breakpoint.xs)">
-        <v-img
-            v-if="!($vuetify.breakpoint.xs)"
-            class="login-logo"
-            :src="require('@/assets/img/bceid_logo.jpg')"
-            max-width="132"
-            contain
-          ></v-img>
         </v-col>
       </v-row>
     </v-col>

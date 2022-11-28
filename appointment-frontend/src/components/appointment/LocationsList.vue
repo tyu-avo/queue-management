@@ -17,7 +17,7 @@
             @change="officeSelection"
             @input="clickSelection"
             @keyup="setKeyPressed"
-            auto-select-first="true"
+            :auto-select-first="true"
             hide-details
           >
           </v-combobox>
@@ -88,6 +88,11 @@
                     </v-col>
                   </v-row>
                 </v-alert>
+<!-- This is confusing as citizen thing they can book the service from here.  In reality this is redundant and
+not useful since list is already displayed after you pick the location.
+
+Recommend removing additional code that produces the list of services if that isn't used elsewhere
+
                 <v-row>
                   <v-col col="12" md="6">
                     <v-btn
@@ -103,6 +108,7 @@
                     </v-btn>
                   </v-col>
                 </v-row>
+-->
               </v-col>
               <v-col cols="12" md="6" align-self="stretch" align="center" class="loc-map">
                 <template v-if='location.externalMapLink'>
