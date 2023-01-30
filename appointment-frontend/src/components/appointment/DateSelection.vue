@@ -25,6 +25,7 @@
         md="6"
         class="text-center"
       >
+<!-- What is the purpose of this, I don't see value. It's buggy if you pick a time and come back, the time still shows.
         <div v-if="selectedTimeSlot">
           <strong class="mr-1">Appointment Date: </strong>
           <br class='d-sm-none' />
@@ -33,6 +34,7 @@
         <div v-else>
           <strong class="mr-1">Date Selected: </strong> {{selectedDateFormatted}}
         </div>
+-->
         <template v-if="selectedDateTimeSlots.length">
           <div ref="available" class="mt-6">
             <strong>Available Time Slots</strong>
